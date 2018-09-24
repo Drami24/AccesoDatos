@@ -19,6 +19,17 @@ public class Autor {
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
     }
-    
+
+    public int getIdAutor() {
+        return idAutor;
+    }
+
+    public String getNacionalidad() {
+        return nacionalidad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
     
 }

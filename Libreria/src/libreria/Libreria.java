@@ -5,6 +5,8 @@
  */
 package libreria;
 
+import java.sql.Statement;
+
 /**
  *
  * @author a14damianld
@@ -15,7 +17,7 @@ public class Libreria {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ConexionBD.iniciarBD();
+        new XeradorMenus().mostrarMenuInicial(ConexionBD.iniciarBD());
     }
     
 }

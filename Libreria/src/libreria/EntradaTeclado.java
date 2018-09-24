@@ -46,7 +46,7 @@ public class EntradaTeclado {
                 System.err.println("O valor introducido non se corresponde con un número válido, volva a intentalo");
                 bandeira = true;
             } finally {
-                cerrarEntradaTeclado(entradaTeclado);
+                //cerrarEntradaTeclado(entradaTeclado);
             }
         } while (bandeira);
         return valorTeclado;
@@ -83,7 +83,7 @@ public class EntradaTeclado {
                 System.err.println("O valor introducido non se corresponde con un número válido, volva a intentalo");
                 bandeira = true;
             } finally {
-                cerrarEntradaTeclado(entradaTeclado);
+                //cerrarEntradaTeclado(entradaTeclado);
             }
         } while (bandeira);
         return valorTeclado;

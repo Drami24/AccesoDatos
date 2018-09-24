@@ -19,6 +19,19 @@ public class Libro {
         this.titulo = titulo;
         this.precio = precio;
     }
+
+    public int getCodLibro() {
+        return codLibro;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+    
     
     
 }

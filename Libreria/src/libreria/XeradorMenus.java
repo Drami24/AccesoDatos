@@ -5,8 +5,7 @@
  */
 package libreria;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.sql.Statement;
 
 /**
  *
@@ -14,7 +13,7 @@ import java.io.InputStreamReader;
  */
 public class XeradorMenus {
 
-    public void mostrarMenuInicial() {
+    public void mostrarMenuInicial(Statement sentencia) {
         byte eleccionMenu;
         do {
             System.out.println("Benvido á libreria de Damián\n"
@@ -25,7 +24,7 @@ public class XeradorMenus {
             eleccionMenu = new EntradaTeclado().leerByteTeclado();
             switch (eleccionMenu) {
                 case 1:
-                    mostrarMenuInsertar();
+                    mostrarMenuInsertar(sentencia);
                     break;
                 case 2:
                     break;
@@ -37,18 +36,20 @@ public class XeradorMenus {
         } while (eleccionMenu != 0);
     }
     
-    private void mostrarMenuInsertar() {
+    private void mostrarMenuInsertar(Statement sentencia) {
         byte eleccionMenu;
         do {
-            System.out.println("Benvido á rede social CaraLibro\n"
+            System.out.println("INSERTAR\n"
                     + "1. Insertar libro\n"
                     + "2. Insertar autor\n"
                     + "0. Atrás");
             eleccionMenu = new EntradaTeclado().leerByteTeclado();
             switch (eleccionMenu) {
-                case 1:
+                case 1: 
+                    new InsertarBD().insertarLibro(sentencia);
                     break;
                 case 2:
+                    new InsertarBD().insertarAutor(sentencia);
                     break;
                 default:
                     System.err.println("Opción incorrecta");

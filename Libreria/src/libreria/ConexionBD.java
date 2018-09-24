@@ -16,7 +16,7 @@ import java.sql.Statement;
  */
 public class ConexionBD {
 
-    public static void iniciarBD() {
+    public static Statement iniciarBD() {
 
         try {
             String driver = "com.mysql.jdbc.Driver";
@@ -24,8 +24,10 @@ public class ConexionBD {
             Connection conexion = ConexionBD.conectarBaseDeDatos(driver, url);
             Statement sentencia = conexion.createStatement();
             ConexionBD.crearBD(conexion, sentencia);
+            return sentencia;
         } catch (Exception e) {
-            System.out.println("Fallo" + e.getMessage());
+            System.out.println("Fallo al conectar BD" + e.getMessage());
+            return null;
         }
 
     }
@@ -77,7 +79,7 @@ public class ConexionBD {
                     + "codLibro INT(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, "
                     + "titulo VARCHAR(30) NOT NULL, "
                     + "precio FLOAT NOT NULL, "
-                    + "PRIMARY KEY (idLibro));");
+                    + "PRIMARY KEY (codLibro));");
             System.out.println("3");
             sentencia.execute("CREATE TABLE IF NOT EXISTS autores_libros ( "
                     + "autor INT(11) UNSIGNED ZEROFILL NOT NULL, "
@@ -96,7 +98,6 @@ public class ConexionBD {
                     + "         ON DELETE CASCADE "
                     + "         ON UPDATE CASCADE );");
             System.out.println("4");
-            conexion.close();
             System.out.println("5");
         } catch (SQLException e) {
             System.out.println("Error" + e.getMessage());
