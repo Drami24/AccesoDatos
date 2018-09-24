@@ -14,16 +14,16 @@ import java.sql.Statement;
  *
  * @author a14damianld
  */
-public class CrearTablas {
+public class ConexionBD {
 
     public static void iniciarBD() {
 
         try {
             String driver = "com.mysql.jdbc.Driver";
             String url = "jdbc:mysql://localhost:3306/?user=root";
-            Connection conexion = CrearTablas.conectarBaseDeDatos(driver, url);
+            Connection conexion = ConexionBD.conectarBaseDeDatos(driver, url);
             Statement sentencia = conexion.createStatement();
-            CrearTablas.crearBD(conexion, sentencia);
+            ConexionBD.crearBD(conexion, sentencia);
         } catch (Exception e) {
             System.out.println("Fallo" + e.getMessage());
         }
@@ -74,12 +74,12 @@ public class CrearTablas {
                     + "PRIMARY KEY (idAutor));");
             System.out.println("2");
             sentencia.execute("CREATE TABLE IF NOT EXISTS libros ( "
-                    + "idLibro INT(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, "
+                    + "codLibro INT(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, "
                     + "titulo VARCHAR(30) NOT NULL, "
                     + "precio FLOAT NOT NULL, "
                     + "PRIMARY KEY (idLibro));");
             System.out.println("3");
-            sentencia.execute("CREATE TABLE IF NOT EXISTS librosautores ( "
+            sentencia.execute("CREATE TABLE IF NOT EXISTS autores_libros ( "
                     + "autor INT(11) UNSIGNED ZEROFILL NOT NULL, "
                     + "libro INT(11) UNSIGNED ZEROFILL NOT NULL, "
                     + "PRIMARY KEY (autor, libro), "
@@ -92,7 +92,7 @@ public class CrearTablas {
                     + "ON UPDATE CASCADE, "
                     + "CONSTRAINT fk_libro "
                     + "FOREIGN KEY (libro) "
-                    + "REFERENCES libros(idLibro) "
+                    + "REFERENCES libros(codLibro) "
                     + "ON DELETE CASCADE "
                     + "ON UPDATE CASCADE );");
             System.out.println("4");
