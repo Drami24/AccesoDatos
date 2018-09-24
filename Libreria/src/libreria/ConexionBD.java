@@ -86,15 +86,15 @@ public class ConexionBD {
                     + "INDEX fk_autor (autor), "
                     + "INDEX fk_libro (libro), "
                     + "CONSTRAINT fk_autor "
-                    + "FOREIGN KEY (autor) "
-                    + "REFERENCES autores(idAutor) "
-                    + "ON DELETE CASCADE "
-                    + "ON UPDATE CASCADE, "
+                    + " FOREIGN KEY (autor) "
+                    + "     REFERENCES autores(idAutor) "
+                    + "         ON DELETE CASCADE "
+                    + "         ON UPDATE CASCADE, "
                     + "CONSTRAINT fk_libro "
-                    + "FOREIGN KEY (libro) "
-                    + "REFERENCES libros(codLibro) "
-                    + "ON DELETE CASCADE "
-                    + "ON UPDATE CASCADE );");
+                    + " FOREIGN KEY (libro) "
+                    + "     REFERENCES libros(codLibro) "
+                    + "         ON DELETE CASCADE "
+                    + "         ON UPDATE CASCADE );");
             System.out.println("4");
             conexion.close();
             System.out.println("5");
