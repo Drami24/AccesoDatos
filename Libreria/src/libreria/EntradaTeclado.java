@@ -14,14 +14,14 @@ import java.io.InputStreamReader;
  * @author dalod
  */
 public class EntradaTeclado {
+    
+    public BufferedReader entradaTeclado = new BufferedReader(new InputStreamReader(System.in));
 
     public byte leerByteTeclado() {
         byte valorTeclado = 0;
         boolean bandeira;
         do {
-            BufferedReader entradaTeclado;
             try {
-                entradaTeclado = new BufferedReader(new InputStreamReader(System.in));
                 valorTeclado = Byte.parseByte(entradaTeclado.readLine());
                 bandeira = false;
             } catch (IOException | NumberFormatException e) {
@@ -36,10 +36,7 @@ public class EntradaTeclado {
         int valorTeclado = 0;
         boolean bandeira;
         do {
-            BufferedReader entradaTeclado;
-            entradaTeclado = null;
             try {
-                entradaTeclado = new BufferedReader(new InputStreamReader(System.in));
                 valorTeclado = Integer.parseInt(entradaTeclado.readLine());
                 bandeira = false;
             } catch (IOException | NumberFormatException e) {
@@ -56,9 +53,7 @@ public class EntradaTeclado {
         String valorTeclado = "";
         boolean bandeira;
         do {
-            BufferedReader entradaTeclado;
             try {
-                entradaTeclado = new BufferedReader(new InputStreamReader(System.in));
                 valorTeclado = entradaTeclado.readLine();
                 bandeira = false;
             } catch (IOException e) {
@@ -73,10 +68,7 @@ public class EntradaTeclado {
         double valorTeclado = 0;
         boolean bandeira;
         do {
-            BufferedReader entradaTeclado;
-            entradaTeclado = null;
             try {
-                entradaTeclado = new BufferedReader(new InputStreamReader(System.in));
                 valorTeclado = Double.parseDouble(entradaTeclado.readLine());
                 bandeira = false;
             } catch (IOException | NumberFormatException e) {

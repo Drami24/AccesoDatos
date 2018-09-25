@@ -16,13 +16,16 @@ public class XeradorMenus {
     public void mostrarMenuInicial(Statement sentencia) {
         byte eleccionMenu;
         do {
-            System.out.println("Benvido á libreria de Damián\n"
+            System.out.println("Benvido á librería de Damián\n"
                     + "1. Insertar filas\n"
                     + "2. Borrar filas\n"
                     + "3. Modificar rexistros\n"
                     + "4. Consultar rexistros");
             eleccionMenu = new EntradaTeclado().leerByteTeclado();
             switch (eleccionMenu) {
+                case 0:
+                    System.out.println("Volves atrás");
+                    break;
                 case 1:
                     mostrarMenuInsertar(sentencia);
                     break;
@@ -45,6 +48,9 @@ public class XeradorMenus {
                     + "0. Atrás");
             eleccionMenu = new EntradaTeclado().leerByteTeclado();
             switch (eleccionMenu) {
+                case 0:
+                    System.out.println("Volves atrás");
+                    break;
                 case 1: 
                     new InsertarBD().insertarLibro(sentencia);
                     break;
