@@ -47,7 +47,6 @@ public class InsertarBD {
         }
     }
     
-    
     private Libro crearLibro(int codLibro) {
         EntradaTeclado entrada = new EntradaTeclado();
         System.out.println("Inserte titulo do libro");

@@ -94,8 +94,6 @@ public class ConexionBD {
                     + "         ON UPDATE CASCADE );");
         } catch (SQLException e) {
             System.err.println("Erro nas execucións das sentencias" + e.getMessage());
-        } catch (Exception e) {
-            System.err.println("2 Erro nas sentencias" + e.getMessage());
         }
     }
 

@@ -26,6 +26,11 @@ public class BorrarBD {
         }
     }
     
+    public void eliminarLibro(Statement sentencia) {
+        System.out.println("Inserte o código do libro a eliminar");
+        borrarLibroBD(new EntradaTeclado().leerIntTeclado(), sentencia);
+    }
+    
     private void borrarAutorBD(int id, Statement sentencia){
         try {
             sentencia.executeUpdate(" DELETE FROM autores WHERE(idAutor=" + id + ");");

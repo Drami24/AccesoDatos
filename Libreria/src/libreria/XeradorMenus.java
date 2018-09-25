@@ -20,18 +20,44 @@ public class XeradorMenus {
                     + "1. Insertar filas\n"
                     + "2. Borrar filas\n"
                     + "3. Modificar rexistros\n"
-                    + "4. Consultar rexistros");
+                    + "4. Consultar rexistros\n"
+                    + "0. Cerrar programa");
             eleccionMenu = new EntradaTeclado().leerByteTeclado();
             switch (eleccionMenu) {
                 case 0:
-                    System.out.println("Volves atrás");
+                    System.out.println("O programa cerrouse con éxito");
                     break;
                 case 1:
                     mostrarMenuInsertar(sentencia);
                     break;
                 case 2:
+                    mostrarMenuBorrar(sentencia);
                     break;
                 case 3:
+                    break;
+                default:
+                    System.err.println("Opción incorrecta");
+            }
+        } while (eleccionMenu != 0);
+    }
+    
+    private void mostrarMenuBorrar(Statement sentencia) {
+        byte eleccionMenu;
+        do {
+            System.out.println("BORRAR\n"
+                    + "1. Borrar libro\n"
+                    + "2. Borrar autor\n"
+                    + "0. Atrás");
+            eleccionMenu = new EntradaTeclado().leerByteTeclado();
+            switch (eleccionMenu) {
+                case 0:
+                    System.out.println("Volves atrás");
+                    break;
+                case 1: 
+                    new BorrarBD().eliminarLibro(sentencia);
+                    break;
+                case 2:
+                    new BorrarBD().eliminarAutor(sentencia);
                     break;
                 default:
                     System.err.println("Opción incorrecta");
