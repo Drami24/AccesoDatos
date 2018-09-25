@@ -5,6 +5,9 @@
  */
 package objetos;
 
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author dalod
@@ -19,17 +22,16 @@ public class Libro {
         this.titulo = titulo;
         this.precio = precio;
     }
-
-    public int getCodLibro() {
-        return codLibro;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public String getTitulo() {
-        return titulo;
+    
+    public void insertarEnBD(Statement sentencia) {
+        try {
+            sentencia.executeUpdate("INSERT INTO libros (codLibro,titulo,precio) "
+                    + "VALUES ('" + this.codLibro + "','" + this.titulo + "','" + this.precio + "')");
+            System.out.println("Libro engadido satisfactoriamente");
+        } catch (SQLException ex) {
+            System.out.println("Error ao insertar libro");
+            System.out.println(ex.getMessage());
+        }
     }
     
     

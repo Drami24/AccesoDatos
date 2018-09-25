@@ -21,10 +21,12 @@ public class Libreria {
         Statement sentencia = null;
         // IDEA PARA CREAR UN OBXECTO PARA METER DATOS DE ETNRADA DE TECLADO
         // CREANDO UN UNICO OBXECTO QUE SE CERRA AO FINALIZAR O PROGRAMA
-        //EntradaTeclado entradaTeclado = new EntradaTeclado();
+        EntradaTeclado entradaTeclado = new EntradaTeclado();
         try {
-            sentencia = ConexionBD.iniciarBD();
-            new XeradorMenus().mostrarMenuInicial(sentencia);
+            String driver = "com.mysql.jdbc.Driver";
+            String url = "jdbc:mysql://localhost:3306/?user=root";
+            sentencia = ConexionBD.iniciarBD(driver, url);
+            new XeradorMenus().mostrarMenuInicial(sentencia, entradaTeclado);
         } catch (Exception e) {
             System.err.println("Erro ao conectar coa base de datos" + e.getMessage());
         } finally {

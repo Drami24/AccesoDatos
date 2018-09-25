@@ -16,10 +16,8 @@ import java.sql.Statement;
  */
 public class ConexionBD {
 
-    public static Statement iniciarBD() {
+    public static Statement iniciarBD(String driver, String url) {
         try {
-            String driver = "com.mysql.jdbc.Driver";
-            String url = "jdbc:mysql://localhost:3307/?user=root";
             Connection conexion = ConexionBD.conectarBaseDeDatos(driver, url);
             Statement sentencia = conexion.createStatement();
             ConexionBD.crearBD(sentencia);

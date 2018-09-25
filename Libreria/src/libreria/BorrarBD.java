@@ -7,8 +7,6 @@ package libreria;
 
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -18,8 +16,12 @@ public class BorrarBD {
     
     private void borrarLibroBD(int id, Statement sentencia){
         try {
-            sentencia.executeUpdate(" DELETE FROM libros WHERE(codLibro=" + id + ");");
-            System.out.println("Libro borrado correctamente");
+            if (new ConsultarBD().existeLibro(sentencia, id)){
+                sentencia.executeUpdate(" DELETE FROM libros WHERE(codLibro=" + id + ");");
+                System.out.println("Libro borrado correctamente");
+            } else {
+                System.err.println("Non existe un libro con ese identificador");
+            }
         } catch (SQLException ex) {
             System.err.println("No es posible borrar el libro");
             System.err.println(ex.getMessage());
@@ -33,8 +35,12 @@ public class BorrarBD {
     
     private void borrarAutorBD(int id, Statement sentencia){
         try {
-            sentencia.executeUpdate(" DELETE FROM autores WHERE(idAutor=" + id + ");");
-            System.out.println("Autor borrado correctamente");
+            if (new ConsultarBD().existeAutor(sentencia, id)){
+                sentencia.executeUpdate(" DELETE FROM autores WHERE(idAutor=" + id + ");");
+                System.out.println("Autor borrado correctamente");
+            } else {
+                System.err.println("Non existe un autor con ese identificador");
+            }
         } catch (SQLException ex) {
             System.err.println("No es posible borrar el autor");
             System.err.println(ex.getMessage());
