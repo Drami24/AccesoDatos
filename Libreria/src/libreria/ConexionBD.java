@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package libreria;
 
 import java.sql.Connection;
@@ -61,7 +57,6 @@ public class ConexionBD {
 
     private static void crearBD(Statement sentencia) {
         try {
-            System.out.println("");
             sentencia.execute("CREATE DATABASE IF NOT EXISTS libreria;");
             sentencia.execute("USE libreria;");
             sentencia.execute("CREATE TABLE IF NOT EXISTS autores ( "

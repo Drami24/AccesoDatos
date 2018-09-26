@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package objetos;
 
 import java.sql.ResultSet;
@@ -12,7 +8,7 @@ import libreria.EntradaTeclado;
 
 /**
  *
- * @author dalod
+ * @author a14damianld
  */
 public class Autor {
     private int idAutor;
@@ -53,8 +49,6 @@ public class Autor {
         this.nombre = nombre;
     }
     
-    
-    
     public void insertarEnBD(Statement sentencia) {
         try {
             sentencia.executeUpdate("INSERT INTO autores (idAutor,nombre,nacionalidad) "
@@ -66,7 +60,7 @@ public class Autor {
         }
     }
     
-        public boolean existeEnBD(Statement sentencia) {
+    public boolean existeEnBD(Statement sentencia) {
         try {
             ResultSet consulta = sentencia.executeQuery("SELECT idAutor FROM autores WHERE autores.idAutor = " + this.idAutor + ";");
             return consulta.next();

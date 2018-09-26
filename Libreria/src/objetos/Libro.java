@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package objetos;
 
 import java.sql.SQLException;
@@ -10,7 +6,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author dalod
+ * @author a14damianld
  */
 public class Libro {
     private int codLibro;
@@ -33,7 +29,5 @@ public class Libro {
             System.out.println(ex.getMessage());
         }
     }
-    
-    
-    
+       
 }

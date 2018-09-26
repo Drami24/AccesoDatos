@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package libreria;
 
 import java.sql.Statement;
@@ -35,6 +31,35 @@ public class XeradorMenus {
                     break;
                 case 3:
                     mostrarMenuEditarPrecio(sentencia, entradaTeclado);
+                    break;
+                case 4:
+                    mostrarMenuConsultas(sentencia, entradaTeclado);
+                    break;
+                default:
+                    System.err.println("Opción incorrecta");
+            }
+        } while (eleccionMenu != 0);
+    }
+    
+    private void mostrarMenuConsultas(Statement sentencia, EntradaTeclado entradaTeclado) {
+        byte eleccionMenu;
+        do {
+            System.out.println("CONSULTAS\n"
+                    + "1. Datos dun libro\n"
+                    + "2. Libros dun autor\n"
+                    + "3. Visualizar táboa libros\n"
+                    + "4. Visualizar autores e libros\n"
+                    + "0. Atrás");
+            eleccionMenu = entradaTeclado.leerByteTeclado();
+            switch (eleccionMenu) {
+                case 0:
+                    System.out.println("Volves atrás");
+                    break;
+                case 1: 
+                    
+                    break;
+                case 3:
+                    ConsultarBD.visualizarLibros(sentencia);
                     break;
                 default:
                     System.err.println("Opción incorrecta");

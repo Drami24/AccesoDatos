@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package libreria;
 
 import java.sql.SQLException;
@@ -12,7 +8,7 @@ import objetos.Libro;
 
 /**
  *
- * @author dalod
+ * @author a14damianld
  */
 public class InsertarBD {
 
@@ -20,7 +16,7 @@ public class InsertarBD {
         return new Autor(entradaTeclado, idAutor);
     }
     
-        private Autor crearAutor(EntradaTeclado entradaTeclado, Autor autor) {
+    private Autor crearAutor(EntradaTeclado entradaTeclado, Autor autor) {
         System.out.println("Inserte o nome do autor");
         autor.setNombre(entradaTeclado.leerStringTeclado());
         System.out.println("Inserte nacionalidade do autor");
@@ -48,8 +44,6 @@ public class InsertarBD {
         }
     }
 
-
-
     private Libro crearLibro(int codLibro) {
         EntradaTeclado entrada = new EntradaTeclado();
         System.out.println("Inserte titulo do libro");
@@ -71,10 +65,8 @@ public class InsertarBD {
             do{
                 bandeira = añadirAutorLibro(entradaTeclado, sentencia, codLibro);
             }while(bandeira);
-            
         }
     }
-    
     
     private boolean añadirAutorLibro(EntradaTeclado entradaTeclado, Statement sentencia, int codLibro){
         System.out.println("Inserte o id do autor");
@@ -95,8 +87,6 @@ public class InsertarBD {
         return entradaTeclado.leerByteTeclado() == 1;
         
     }
-
-
 
     private void relacionarAutorLibroBD(Statement sentencia, int idAutor, int codLibro) {
         try {

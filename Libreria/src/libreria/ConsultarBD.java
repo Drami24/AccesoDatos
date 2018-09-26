@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package libreria;
 
 import java.sql.ResultSet;
@@ -11,7 +7,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author dalod
+ * @author a14damianld
  */
 public class ConsultarBD {
 
@@ -36,6 +32,32 @@ public class ConsultarBD {
             return true;
         }
     }
+
+    public static void verMedicosAsociados(int nuss, Statement sentencia) {
+        ResultSet consulta;
+        try {
+            consulta = sentencia.executeQuery("SELECT * FROM MEDICOS WHERE codigo IN (SELECT medico FROM MEDICOS_ENFERMOS WHERE enfermo='" + nuss + "');");
+            while (consulta.next()) {
+                System.out.println("consulta.getString(1), consulta.getString(2), consulta.getString(3), consulta.getString(4)");
+            }
+            consulta.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
-    
+    public static void visualizarLibros(Statement sentencia) {
+        try {
+            ResultSet consulta; 
+            consulta = sentencia.executeQuery("select codLibro,titulo,precio from libros;");
+            System.out.println("Codigo\tTitulo\tPrecio");
+            while (consulta.next()) {
+                System.out.printf(String.format("%1$-23s %2$-23s %3$s", consulta.getString("codLibro"), consulta.getString("titulo"), consulta.getString("precio")) + "€");
+            }
+            System.out.println();
+        } catch (SQLException e) {
+            System.out.println("Error ao visualizar libros" + e);
+        }
+    }
+
 }
