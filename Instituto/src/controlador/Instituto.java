@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package instituto;
+package controlador;
+
+import java.sql.Connection;
+import modelo.BaseDatos;
 
 /**
  *
@@ -15,7 +18,8 @@ public class Instituto {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        BaseDatos.crearBD(BaseDatos.getConexion());
+
     }
     
 }
