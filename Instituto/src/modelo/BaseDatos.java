@@ -115,9 +115,24 @@ public class BaseDatos {
             sentenciaPreparada.executeUpdate();
             System.out.println("Alumno " + novoAlumno.getNombre() + " engadido correctamente");
         } catch (SQLException e) {
-            System.err.println("Insercion de alumno incorrecta");
-            e.printStackTrace();
+            System.err.println("Insercion de alumno incorrecta " + e.getMessage());
         }
+    }
+    
+    public static void insertarNota(Nota novaNota) {
+        String sql = "INSERT INTO notas (idAsignatura, idAlumno, fecha, nota) VALUES (?, ?, ?)";
+        try {
+            PreparedStatement sentenciaPreparada = getConexion().prepareStatement(sql);
+            sentenciaPreparada.setInt(1, novaNota.getIdAsignatura());
+            sentenciaPreparada.setInt(2, novaNota.getIdAlumno());
+            sentenciaPreparada.setString(3, novaNota.getFecha());
+            sentenciaPreparada.setDouble(4, novaNota.getNota());
+            sentenciaPreparada.executeUpdate();
+            System.out.println("Nota engadida");
+        } catch (SQLException e) {
+            System.out.println("Insercción de nota fallida " + e.getMessage());
+        }
+        
     }
     
     public static void baixaProfesor(String dniProfesor) {
