@@ -12,7 +12,7 @@ public class Menus {
     public static byte mostrarMenuAltas() {
         System.out.println("Altas\n"
                 + "1. Insertar un novo Profesor \n"
-                + "2. Insertar un novo empregado\n"
+                + "2. Insertar un novo Alumno\n"
                 + "0. Atrás");
         return EntradaTeclado.leerByteTeclado();
     }

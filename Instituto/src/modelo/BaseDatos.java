@@ -106,7 +106,7 @@ public class BaseDatos {
     }
     
     public static void insertarAlumno(Alumno novoAlumno) {
-        String sql = "INSERT INTO profesores (idAlumno, codigoAlumno, nombre) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO alumnos (idAlumno, codAlumno, nombre) VALUES (?, ?, ?)";
         try {
             PreparedStatement sentenciaPreparada = getConexion().prepareStatement(sql);
             sentenciaPreparada.setInt(1, novoAlumno.getIdAlumno());
@@ -115,7 +115,7 @@ public class BaseDatos {
             sentenciaPreparada.executeUpdate();
             System.out.println("Alumno " + novoAlumno.getNombre() + " engadido correctamente");
         } catch (SQLException e) {
-            System.err.println("Insercion de profe incorrecta");
+            System.err.println("Insercion de alumno incorrecta");
             e.printStackTrace();
         }
     }

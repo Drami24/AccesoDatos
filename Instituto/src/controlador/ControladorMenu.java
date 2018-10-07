@@ -25,6 +25,7 @@ public class ControladorMenu {
                     Altas.altaProfesor();
                     break;
                 case 2:
+                    Altas.altaAlumno();
                     break;
                 default:
                     System.err.println("Opción incorrecta");
