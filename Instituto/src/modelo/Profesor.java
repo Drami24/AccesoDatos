@@ -19,6 +19,18 @@ public class Profesor {
         this.nombre = nombre;
         this.titulacion = titulacion;
     }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getTitulacion() {
+        return titulacion;
+    }
     
     
 }

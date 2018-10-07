@@ -5,21 +5,17 @@
  */
 package controlador;
 
-import java.sql.Connection;
 import modelo.BaseDatos;
+import modelo.Profesor;
+import vistas.Insercions;
 
 /**
  *
  * @author dalod
  */
-public class Instituto {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        BaseDatos.crearBD();
-        ControladorMenu.mostrarMenuInicial();
-    }
+public class Altas {
     
+    public static void altaProfesor(){
+        BaseDatos.insertarProfesor(Insercions.profesor());
+    }
 }
