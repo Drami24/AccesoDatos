@@ -19,6 +19,18 @@ public class Alumno {
         this.codAlumno = codAlumno;
         this.nombre = nombre;
     }
+
+    public int getIdAlumno() {
+        return idAlumno;
+    }
+
+    public String getCodAlumno() {
+        return codAlumno;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
     
     
 }

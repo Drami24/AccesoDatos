@@ -105,14 +105,31 @@ public class BaseDatos {
         } 
     }
     
+    public static void insertarAlumno(Alumno novoAlumno) {
+        String sql = "INSERT INTO profesores (idAlumno, codigoAlumno, nombre) VALUES (?, ?, ?)";
+        try {
+            PreparedStatement sentenciaPreparada = getConexion().prepareStatement(sql);
+            sentenciaPreparada.setInt(1, novoAlumno.getIdAlumno());
+            sentenciaPreparada.setString(2, novoAlumno.getCodAlumno());
+            sentenciaPreparada.setString(3, novoAlumno.getNombre());
+            sentenciaPreparada.executeUpdate();
+            System.out.println("Alumno " + novoAlumno.getNombre() + " engadido correctamente");
+        } catch (SQLException e) {
+            System.err.println("Insercion de profe incorrecta");
+            e.printStackTrace();
+        }
+    }
+    
     public static void baixaProfesor(String dniProfesor) {
-        String sql = "DELETE FROM profesores WHERE dni = ?)";
+        String sql = "DELETE FROM profesores WHERE dni = ?";
         try {
             PreparedStatement sentenciaPreparada = getConexion().prepareStatement(sql);
             sentenciaPreparada.setString(1, dniProfesor);
             sentenciaPreparada.executeUpdate();
+            System.out.println("Profesor co dni "+dniProfesor+ "eliminado correctamente");
         } catch (SQLException e) {
             System.err.println("Eliminacion de profe incorrecta ");
+            System.err.println(e.getMessage());
         }
     }
     

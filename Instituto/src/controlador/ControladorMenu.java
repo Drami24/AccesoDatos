@@ -5,13 +5,11 @@
  */
 package controlador;
 
-import java.sql.Connection;
 import vistas.Menus;
-import static vistas.Menus.mostrarMenuAltas;
 
 /**
  *
- * @author dalod
+ * @author a14damianld
  */
 public class ControladorMenu {
 
@@ -34,6 +32,25 @@ public class ControladorMenu {
         } while (eleccionMenu != 0);
     }
 
+    public static void menuBaixas() {
+        byte eleccionMenu;
+        do {
+            eleccionMenu = Menus.mostrarMenuBaixas();
+            switch (eleccionMenu) {
+                case 0:
+                    System.out.println("Volves atrás");
+                    break;
+                case 1:
+                    Baixas.baixaProfesor();
+                    break;
+                case 2:
+                    break;
+                default:
+                    System.err.println("Opción incorrecta");
+            }
+        } while (eleccionMenu != 0);
+    }
+
     public static void mostrarMenuInicial() {
         byte eleccionMenu;
         do {
@@ -46,7 +63,7 @@ public class ControladorMenu {
                     menuAltas();
                     break;
                 case 2:
-
+                    menuBaixas();
                     break;
                 case 3:
 
@@ -59,4 +76,5 @@ public class ControladorMenu {
             }
         } while (eleccionMenu != 0);
     }
+
 }

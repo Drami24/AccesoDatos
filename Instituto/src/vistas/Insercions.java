@@ -16,8 +16,7 @@ import modelo.Profesor;
 public class Insercions {
     
     public static Profesor profesor(){
-        System.out.println("Inserte o dni do profesor");
-        String dni = EntradaTeclado.leerStringTeclado();
+        String dni = dniProfesor();
         System.out.println("Inserte o nome do profesor");
         String nome = EntradaTeclado.leerStringTeclado();
         System.out.println("Inserte a titulacion do profesor");
@@ -33,6 +32,11 @@ public class Insercions {
         System.out.println("Inserte a nome do alumno");
         String nome = EntradaTeclado.leerStringTeclado();
         return new Alumno(idAlumno, codigo, nome);
+    }
+    
+    public static String dniProfesor(){
+        System.out.println("Inserte o dni do profesor");
+        return EntradaTeclado.leerStringTeclado();
     }
     
 }

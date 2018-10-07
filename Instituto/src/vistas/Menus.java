@@ -10,9 +10,17 @@ import java.sql.Connection;
 public class Menus {
 
     public static byte mostrarMenuAltas() {
-        System.out.println("Benvido á Empresa de Damián\n"
+        System.out.println("Altas\n"
                 + "1. Insertar un novo Profesor \n"
                 + "2. Insertar un novo empregado\n"
+                + "0. Atrás");
+        return EntradaTeclado.leerByteTeclado();
+    }
+    
+    public static byte mostrarMenuBaixas() {
+        System.out.println("Baixas\n"
+                + "1. Eliminar Profesor \n"
+                + "2. Eliminar Alumno\n"
                 + "0. Atrás");
         return EntradaTeclado.leerByteTeclado();
     }
@@ -26,5 +34,6 @@ public class Menus {
                 + "0. Cerrar programa");
         return EntradaTeclado.leerByteTeclado();
     }
+    
 
 }

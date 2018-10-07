@@ -12,14 +12,10 @@ import vistas.Insercions;
  *
  * @author a14damianld
  */
-public class Altas {
+public class Baixas {
 
-    public static void altaProfesor() {
-        BaseDatos.insertarProfesor(Insercions.profesor());
+    public static void baixaProfesor() {
+        BaseDatos.baixaProfesor(Insercions.dniProfesor());
     }
-    
-    public static void altaAlumno() {
-        BaseDatos.insertarAlumno(Insercions.alumno());
-    }
-    
+
 }
